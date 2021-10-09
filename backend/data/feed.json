@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Device 1",
+    "status": "Available",
+    "temperature": 10
+  },
+  {
+    "name": "Device 2",
+    "status": "Available",
+    "temperature": 20
+  },
+  {
+    "name": "Device 3",
+    "status": "Available",
+    "temperature": 15
+  },
+  {
+    "name": "Device 4",
+    "status": "Unavailable",
+    "temperature": 11
+  },
+  {
+    "name": "Device 5",
+    "status": "Unavailable",
+    "temperature": 10
+  },
+  {
+    "name": "Device 6",
+    "status": "Available",
+    "temperature": 13
+  },
+  {
+    "name": "Device 7",
+    "status": "Available",
+    "temperature": 14
+  },
+  {
+    "name": "Device 8",
+    "status": "Available",
+    "temperature": 15
+  }
+]
