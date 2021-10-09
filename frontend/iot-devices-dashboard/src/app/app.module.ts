@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     DeviceDetailsComponent,
     DevicesListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

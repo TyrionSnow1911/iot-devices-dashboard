@@ -8,9 +8,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DevicesListComponent implements OnInit {
   devices: any;
-  currentDevice = null;
+  currentDevice: any = null;
   currentIndex = -1;
-  title = '';
+  title: string = '';
 
   constructor(private dataService: DataService) {}
 
