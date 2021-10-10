@@ -4,58 +4,50 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="title"
+        placeholder="Search by name"
+        [(ngModel)]="searchDevice"
       />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
-        >
-          Search
-        </button>
-      </div>
+      <div class="input-group-append"></div>
     </div>
   </div>
   <div class="col-md-6">
-    <h4>Device List</h4>
+    <h4>Related Devices:</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let device of devices; let i = index"
+        *ngFor="let device of devices | filter: searchDevice; let i = index"
         [class.active]="i == currentIndex"
         (click)="setActiveDevice(device, i)"
       >
-        {{ device.title }}
+        {{ device.name }}
+        {{ device.status }}
       </li>
     </ul>
-
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDevices()">
-      Remove All
-    </button>
   </div>
+
   <div class="col-md-6">
     <div *ngIf="currentDevice">
-      <h4>Device</h4>
       <div>
-        <label><strong>Title:</strong></label> {{ currentDevice.title }}
+        <label><strong>Title:</strong></label> {{ currentDevice.name }}
       </div>
       <div>
         <label><strong>Status:</strong></label>
         {{ currentDevice.status }}
       </div>
       <div>
-        <label><strong>Publishing:</strong></label>
-        {{ currentDevice.published ? "Published" : "Pending" }}
+        <label><strong>Status:</strong></label>
+        {{ currentDevice.temperature }}
       </div>
-
-      <a
-        class="badge badge-warning"
-        routerLink="/devices/{{ currentDevice.id }}"
-      >
-        Edit
-      </a>
+      <div>
+        <label><strong>Usage:</strong></label>
+        <br />
+        <img
+          src="assets/Usage-Chart.PNG"
+          alt="placeholder"
+          width="125"
+          height="200"
+        />
+      </div>
     </div>
 
     <div *ngIf="!currentDevice">

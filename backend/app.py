@@ -3,8 +3,7 @@ import os
 import json
 from flask_cors import CORS
 from flask import Flask, request, jsonify
-from backend.models.models import DeviceData
-from models import get_session, User, Profile, CaseData, create_all
+from models import get_session, create_all, DeviceData
 
 
 app = Flask(__name__)
@@ -21,25 +20,21 @@ def seed_database():
     count = 0
     for row in data:
         session = get_session()
-        deviceData.case_id = str(count)
-        deviceData.caption = row["caption"]
-        deviceData.followers = row["followers"]
-        deviceData.image_url = row["image_url"]
-        deviceData.likes = row["likes"]
-        deviceData.profile_image_url = row["profile_image_url"]
-        deviceData.title = row["title"]
-        deviceData.username = row["username"]
+        deviceData.device_id = str(count)
+        deviceData.name = row["name"]
+        deviceData.status = row["status"]
+        deviceData.temperature = row["temperature"]
         u = session.merge(deviceData)
         session.commit()
         count += 1
     session.close()
 
 
-@app.route("/deviceData", methods=["GET"])
+@app.route("/devices", methods=["GET"])
 def fetchDeviceData():
     global deviceData
     session = get_session()
-    rows = session.execute("select * from deviceData;").fetchall()
+    rows = session.execute("select * from device_data;").fetchall()
 
     result = []
     for row in rows:
@@ -53,14 +48,14 @@ def fetchDeviceData():
     return json.dumps({"success": True, "data": result}), 200
 
 
-@app.route("/device_details", methods=["GET"])
-def fetchCaseDetails():
+@app.route("/devices/:id", methods=["GET"])
+def fetchDeviceDetails():
     global deviceData
     id = request.args.get("device_id")
 
     session = get_session()
     result = session.execute(
-        "select * from deviceData where device_id=%s;" % str(id)
+        "select * from device_data where device_id={};".format(str(id))
     ).fetchall()[0]
 
     data = {}
@@ -76,4 +71,4 @@ if __name__ == "__main__":
     if not os.path.exists("app.db"):
         create_all()
     seed_database()
-    app.run(host="localhost", port=5000, debug=True)
+    app.run(host="localhost", port=8080, debug=True)

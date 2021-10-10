@@ -16,12 +16,12 @@
   },
   {
     "name": "Device 4",
-    "status": "Unavailable",
+    "status": "Offline",
     "temperature": 11
   },
   {
     "name": "Device 5",
-    "status": "Unavailable",
+    "status": "Offline",
     "temperature": 10
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "name": "Device 8",
-    "status": "Available",
+    "status": "Offline",
     "temperature": 15
   }
 ]

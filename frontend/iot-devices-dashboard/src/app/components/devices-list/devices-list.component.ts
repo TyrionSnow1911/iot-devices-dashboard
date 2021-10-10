@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { IgxFilterOptions } from 'igniteui-angular';
 
 @Component({
   selector: 'app-devices-list',
@@ -7,7 +8,8 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./devices-list.component.css'],
 })
 export class DevicesListComponent implements OnInit {
-  devices: any;
+  public searchDevice: string = '';
+  devices: any[] = [];
   currentDevice: any = null;
   currentIndex = -1;
   title: string = '';
@@ -20,9 +22,9 @@ export class DevicesListComponent implements OnInit {
 
   retrieveDevices(): void {
     this.dataService.getAll().subscribe(
-      (data) => {
-        this.devices = data;
-        console.log(data);
+      (resp) => {
+        this.devices = resp.data;
+        console.log(resp);
       },
       (error) => {
         console.log(error);
@@ -53,15 +55,22 @@ export class DevicesListComponent implements OnInit {
     );
   }
 
-  searchTitle(): void {
-    this.dataService.findByTitle(this.title).subscribe(
-      (data) => {
-        this.devices = data;
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // get filterDevices() {
+  //   const fo = new IgxFilterOptions();
+  //   fo.key = 'name';
+  //   fo.inputValue = this.searchDevice;
+  //   return fo;
+  // }
+
+  // searchTitle(): void {
+  //   this.dataService.findByTitle(this.title).subscribe(
+  //     (resp) => {
+  //       this.devices = resp.data;
+  //       console.log(resp);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 }

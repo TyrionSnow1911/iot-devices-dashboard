@@ -1,15 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddDeviceComponent } from './components/add-device/add-device.component';
-import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DevicesListComponent } from './components/devices-list/devices-list.component';
 
-const routes: Routes = [
-  { path: '', redirectTo: 'devices', pathMatch: 'full' },
-  { path: 'devices', component: DevicesListComponent },
-  { path: 'devices/:id', component: DeviceDetailsComponent },
-  { path: 'add', component: AddDeviceComponent },
-];
+const routes: Routes = [{ path: 'devices', component: DevicesListComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
