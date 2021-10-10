@@ -55,22 +55,7 @@ export class DevicesListComponent implements OnInit {
     );
   }
 
-  // get filterDevices() {
-  //   const fo = new IgxFilterOptions();
-  //   fo.key = 'name';
-  //   fo.inputValue = this.searchDevice;
-  //   return fo;
-  // }
-
-  // searchTitle(): void {
-  //   this.dataService.findByTitle(this.title).subscribe(
-  //     (resp) => {
-  //       this.devices = resp.data;
-  //       console.log(resp);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  clearSearch() {
+    this.searchDevice = '';
+  }
 }

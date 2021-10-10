@@ -7,6 +7,7 @@
         placeholder="Search by name"
         [(ngModel)]="searchDevice"
       />
+      <button class="btn btn-primary" (click)="clearSearch()">Cancel</button>
       <div class="input-group-append"></div>
     </div>
   </div>
@@ -28,14 +29,14 @@
   <div class="col-md-6">
     <div *ngIf="currentDevice">
       <div>
-        <label><strong>Title:</strong></label> {{ currentDevice.name }}
+        <label><strong>Details:</strong></label> {{ currentDevice.name }}
       </div>
       <div>
         <label><strong>Status:</strong></label>
         {{ currentDevice.status }}
       </div>
       <div>
-        <label><strong>Status:</strong></label>
+        <label><strong>Temperature:</strong></label>
         {{ currentDevice.temperature }}
       </div>
       <div>
@@ -48,11 +49,6 @@
           height="200"
         />
       </div>
-    </div>
-
-    <div *ngIf="!currentDevice">
-      <br />
-      <p>Please click on a Device...</p>
     </div>
   </div>
 </div>
