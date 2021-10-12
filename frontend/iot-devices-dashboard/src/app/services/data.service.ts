@@ -33,8 +33,4 @@ export class DataService {
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
-
-  findByTitle(title: any): Observable<any> {
-    return this.http.get(`${baseUrl}?title=${title}`);
-  }
 }

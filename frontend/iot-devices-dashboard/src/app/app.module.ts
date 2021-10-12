@@ -5,16 +5,9 @@ import { AppComponent } from './app.component';
 import { DevicesListComponent } from './components/devices-list/devices-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  IgxAvatarModule,
-  IgxFilterModule,
-  IgxIconModule,
-  IgxListModule,
-  IgxInputGroupModule,
-  IgxButtonGroupModule,
-  IgxRippleModule,
-} from 'igniteui-angular';
 import { FilterPipe } from './pipe/filter.pipe';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, DevicesListComponent, FilterPipe],
@@ -23,15 +16,10 @@ import { FilterPipe } from './pipe/filter.pipe';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    IgxAvatarModule,
-    IgxFilterModule,
-    IgxIconModule,
-    IgxListModule,
-    IgxInputGroupModule,
-    IgxButtonGroupModule,
-    IgxRippleModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

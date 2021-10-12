@@ -1,0 +1,30 @@
+.content {
+  padding: 16px;
+}
+
+.content > mat-card {
+  width: 200px;
+}
+
+.device-card {
+  background-color: gray;
+  margin-right: auto;
+}
+
+.main-container {
+  position: absolute;
+  left: 0px;
+  padding: 0;
+  margin: 0;
+}
+
+.device-card-container {
+  display: inline-block;
+}
+
+.device-details-container {
+  display: inline-block;
+  position: fixed;
+  left: 200px;
+  width: auto;
+}
