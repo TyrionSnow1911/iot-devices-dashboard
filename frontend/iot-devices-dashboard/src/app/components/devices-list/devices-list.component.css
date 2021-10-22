@@ -26,14 +26,18 @@
 
 .device-card-container {
   background-color: gray;
-  border: 20px solid gray;
-  margin-right: auto;
+  border: solid gray;
+  border-width: 20px;
+  border-top-width: 5px;
+  border-bottom-width: 10px;
   width: auto;
 }
 
 .info-icon {
   display: inline-flex;
-  position: absolute;
+  margin-left: 10px;
+  position: relative;
   width: auto;
   left: auto;
+  justify-content: right;
 }
