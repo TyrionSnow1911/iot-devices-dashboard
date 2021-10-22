@@ -9,4 +9,5 @@ class DeviceData(Base):
     name = Column(Text)
     status = Column(Text)
     temperature = Column(Text)
+    type = Column(Text)
 

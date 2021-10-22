@@ -6,19 +6,14 @@
   width: 200px;
 }
 
-.device-card {
-  background-color: gray;
-  margin-right: auto;
-}
-
 .main-container {
   position: absolute;
-  left: 0px;
+  left: auto;
   padding: 0;
   margin: 0;
 }
 
-.device-card-container {
+.device-card-list-container {
   display: inline-block;
 }
 
@@ -27,4 +22,18 @@
   position: fixed;
   left: 200px;
   width: auto;
+}
+
+.device-card-container {
+  background-color: gray;
+  border: 20px solid gray;
+  margin-right: auto;
+  width: auto;
+}
+
+.info-icon {
+  display: inline-flex;
+  position: absolute;
+  width: auto;
+  left: auto;
 }

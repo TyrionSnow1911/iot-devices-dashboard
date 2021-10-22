@@ -1,4 +1,3 @@
-import uuid
 import os
 import json
 from flask_cors import CORS
@@ -24,7 +23,8 @@ def seed_database():
         deviceData.name = row["name"]
         deviceData.status = row["status"]
         deviceData.temperature = row["temperature"]
-        u = session.merge(deviceData)
+        deviceData.type = row["type"]
+        session.merge(deviceData)
         session.commit()
         count += 1
     session.close()
@@ -43,6 +43,7 @@ def fetchDeviceData():
         data["name"] = row[1]
         data["status"] = row[2]
         data["temperature"] = row[3]
+        data["type"] = row[4]
         result.append(data)
 
     return json.dumps({"success": True, "data": result}), 200
@@ -63,6 +64,7 @@ def fetchDeviceDetails():
     data["name"] = result[1]
     data["status"] = result[2]
     data["temperature"] = result[3]
+    data["type"] = result[4]
 
     return json.dumps({"success": True, "data": data}), 200
 

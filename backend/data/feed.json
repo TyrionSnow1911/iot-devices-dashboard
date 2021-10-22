@@ -2,41 +2,49 @@
   {
     "name": "Device 1",
     "status": "Available",
-    "temperature": 10
+    "temperature": 10,
+    "type": "phone"
   },
   {
     "name": "Device 2",
     "status": "Available",
-    "temperature": 20
+    "temperature": 20,
+    "type": "phone"
   },
   {
     "name": "Device 3",
     "status": "Available",
-    "temperature": 15
+    "temperature": 15,
+    "type": "phone"
   },
   {
     "name": "Device 4",
     "status": "Offline",
-    "temperature": 11
+    "temperature": 11,
+    "type": "tablet"
   },
   {
     "name": "Device 5",
     "status": "Offline",
-    "temperature": 10
+    "temperature": 10,
+    "type": "tablet"
   },
   {
     "name": "Device 6",
     "status": "Available",
-    "temperature": 13
+    "temperature": 13,
+    "type": "tablet"
   },
   {
     "name": "Device 7",
     "status": "Available",
-    "temperature": 14
+    "temperature": 14,
+    "type": "tv"
   },
   {
     "name": "Device 8",
     "status": "Offline",
-    "temperature": 15
+    "temperature": 15,
+    "type": "tv"
   }
 ]

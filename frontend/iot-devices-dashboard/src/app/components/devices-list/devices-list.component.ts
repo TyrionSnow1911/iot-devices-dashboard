@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { IgxFilterOptions } from 'igniteui-angular';
 
 @Component({
   selector: 'app-devices-list',
