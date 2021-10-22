@@ -22,6 +22,7 @@
   position: fixed;
   left: 200px;
   width: auto;
+  margin-left: 50px;
 }
 
 .device-card-container {
