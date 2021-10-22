@@ -31,6 +31,15 @@
   border-top-width: 5px;
   border-bottom-width: 10px;
   width: auto;
+  margin-left: 10px;
+}
+
+.device-card-header {
+  margin-left: 25px;
+}
+
+.device-card-status {
+  margin-left: 10px;
 }
 
 .info-icon {
@@ -40,4 +49,13 @@
   width: auto;
   left: auto;
   justify-content: right;
+}
+
+.device-icon {
+  display: inline-flex;
+  margin-left: 0px;
+  position: relative;
+  width: auto;
+  left: auto;
+  justify-content: left;
 }
