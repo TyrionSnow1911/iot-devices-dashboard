@@ -23,19 +23,29 @@
           (click)="setActiveDevice(device, i)"
         >
           <br />
+
           <div class="device-card-container">
             <mat-card>
               <mat-card-header>
                 <mat-card-title>{{ device.name }} </mat-card-title>
               </mat-card-header>
               <br />
-              <mat-card-content></mat-card-content>
-              <mat-card-content> Status: {{ device.status }} </mat-card-content>
+
+              <mat-card-content>
+                <img
+                  id="device-icon"
+                  mat-card-image
+                  src="assets/{{ device.type }}-icon.png"
+                  width="15"
+                  height="20"
+                />
+              </mat-card-content>
+
+              <mat-card-content>Status: {{ device.status }}</mat-card-content>
               <mat-card-content class="info-icon"
                 ><img
                   mat-card-image
                   src="assets/info-icon.png"
-                  alt="placeholder"
                   width="15"
                   height="20"
               /></mat-card-content>

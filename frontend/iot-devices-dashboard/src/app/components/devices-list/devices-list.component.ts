@@ -19,39 +19,21 @@ export class DevicesListComponent implements OnInit {
     this.retrieveDevices();
   }
 
-  retrieveDevices(): void {
-    this.dataService.getAll().subscribe(
+  async retrieveDevices(): Promise<any> {
+    await this.dataService.getAll().subscribe(
       (resp) => {
         this.devices = resp.data;
-        console.log(resp);
+        console.log(this.devices);
       },
       (error) => {
         console.log(error);
       }
     );
-  }
-
-  refreshList(): void {
-    this.retrieveDevices();
-    this.currentDevice = null;
-    this.currentIndex = -1;
   }
 
   setActiveDevice(device: any, index: any): void {
     this.currentDevice = device;
     this.currentIndex = index;
-  }
-
-  removeAllDevices(): void {
-    this.dataService.deleteAll().subscribe(
-      (response) => {
-        console.log(response);
-        this.retrieveDevices();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   }
 
   clearSearch() {
