@@ -1,66 +1,84 @@
-<div class="list row">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by title"
-        [(ngModel)]="title"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          (click)="searchTitle()"
+<div class="devices-dashboard-container">
+  <div class="search-bar-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by name"
+      [(ngModel)]="searchDevice"
+    />
+    <button (click)="clearSearch()">Cancel</button>
+  </div>
+
+  <div class="main-device-list-container">
+    <br />
+    <div class="related-devices-field-container">
+      <span class="related-devices">Related Devices:</span>
+    </div>
+    <div class="device-card-list-container">
+      <mat-list>
+        <mat-list-item
+          *ngFor="let device of devices | filter: searchDevice; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveDevice(device, i)"
         >
-          Search
-        </button>
-      </div>
+          <br />
+          <div class="device-card-container">
+            <mat-card>
+              <mat-card-header class="device-card-header">
+                <mat-card-title> {{ device.name }} </mat-card-title>
+              </mat-card-header>
+              <br />
+              <div class="device-icon">
+                <img
+                  mat-card-image
+                  src="assets/{{ device.type }}-icon.png"
+                  width="15"
+                  height="20"
+                />
+              </div>
+
+              <mat-card-content class="device-card-status"
+                >Status: {{ device.status }}</mat-card-content
+              >
+              <mat-card-content class="info-icon"
+                ><img
+                  mat-card-image
+                  src="assets/info-icon.png"
+                  width="15"
+                  height="20"
+              /></mat-card-content>
+            </mat-card>
+          </div>
+        </mat-list-item>
+      </mat-list>
     </div>
-  </div>
-  <div class="col-md-6">
-    <h4>Device List</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let device of devices; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveDevice(device, i)"
-      >
-        {{ device.title }}
-      </li>
-    </ul>
-
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllDevices()">
-      Remove All
-    </button>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentDevice">
-      <h4>Device</h4>
-      <div>
-        <label><strong>Title:</strong></label> {{ currentDevice.title }}
+    <div class="device-details-container">
+      <div *ngIf="currentDevice">
+        <div class="device-details-title">
+          <label class="device-details-label"><strong>Details:</strong></label>
+          {{ currentDevice.name }}
+        </div>
+        <div>
+          <label class="device-status-label"><strong>Status:</strong></label>
+          {{ currentDevice.status }}
+          <br />
+          <label class="device-temperature-label"
+            ><strong>Temperature:</strong></label
+          >
+          {{ currentDevice.temperature }} Celsius
+        </div>
+        <div>
+          <label class="device-usage-label"><strong>Usage:</strong></label>
+          <br />
+          <img
+            class="usage-chart"
+            src="assets/usage-chart-place-holder.png"
+            alt="placeholder"
+            width="125"
+            height="200"
+          />
+        </div>
       </div>
-      <div>
-        <label><strong>Status:</strong></label>
-        {{ currentDevice.status }}
-      </div>
-      <div>
-        <label><strong>Publishing:</strong></label>
-        {{ currentDevice.published ? "Published" : "Pending" }}
-      </div>
-
-      <a
-        class="badge badge-warning"
-        routerLink="/devices/{{ currentDevice.id }}"
-      >
-        Edit
-      </a>
-    </div>
-
-    <div *ngIf="!currentDevice">
-      <br />
-      <p>Please click on a Device...</p>
     </div>
   </div>
 </div>

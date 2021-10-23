@@ -7,10 +7,10 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./devices-list.component.css'],
 })
 export class DevicesListComponent implements OnInit {
-  devices: any;
+  public searchDevice: string = '';
+  devices: any[] = [];
   currentDevice: any = null;
   currentIndex = -1;
-  title: string = '';
 
   constructor(private dataService: DataService) {}
 
@@ -18,22 +18,16 @@ export class DevicesListComponent implements OnInit {
     this.retrieveDevices();
   }
 
-  retrieveDevices(): void {
-    this.dataService.getAll().subscribe(
-      (data) => {
-        this.devices = data;
-        console.log(data);
+  async retrieveDevices(): Promise<any> {
+    await this.dataService.getAll().subscribe(
+      (resp) => {
+        this.devices = resp.data;
+        console.log(this.devices);
       },
       (error) => {
         console.log(error);
       }
     );
-  }
-
-  refreshList(): void {
-    this.retrieveDevices();
-    this.currentDevice = null;
-    this.currentIndex = -1;
   }
 
   setActiveDevice(device: any, index: any): void {
@@ -41,27 +35,7 @@ export class DevicesListComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  removeAllDevices(): void {
-    this.dataService.deleteAll().subscribe(
-      (response) => {
-        console.log(response);
-        this.retrieveDevices();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  searchTitle(): void {
-    this.dataService.findByTitle(this.title).subscribe(
-      (data) => {
-        this.devices = data;
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  clearSearch() {
+    this.searchDevice = '';
   }
 }
