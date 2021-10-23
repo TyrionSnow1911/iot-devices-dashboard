@@ -1,18 +1,20 @@
-<div class="search-bar-container">
-  <div class="col-md-8">
-    <div class="input-group mb-3">
-      <br />
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search by name"
-        [(ngModel)]="searchDevice"
-      />
-      <button class="btn btn-primary" (click)="clearSearch()">Cancel</button>
-    </div>
+<div class="devices-dashboard-container">
+  <div class="search-bar-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by name"
+      [(ngModel)]="searchDevice"
+    />
+    <button (click)="clearSearch()">Cancel</button>
   </div>
-  <div class="main-container">
+
+  <div class="main-device-list-container">
     <br />
+    <div class="device-list-header-container">
+      <span class="related-devices">Related Devices:</span>
+    </div>
+
     <div class="device-card-list-container">
       <mat-list class="list-group">
         <mat-list-item
@@ -28,7 +30,6 @@
                 <mat-card-title> {{ device.name }} </mat-card-title>
               </mat-card-header>
               <br />
-
               <div class="device-icon">
                 <img
                   mat-card-image
@@ -55,21 +56,25 @@
     </div>
     <div class="device-details-container">
       <div *ngIf="currentDevice">
-        <div>
-          <label><strong>Details:</strong></label> {{ currentDevice.name }}
+        <div class="device-details-title">
+          <label class="device-details-label"><strong>Details:</strong></label>
+          {{ currentDevice.name }}
         </div>
         <div>
-          <label><strong>Status:</strong></label>
+          <label class="device-status-label"><strong>Status:</strong></label>
           {{ currentDevice.status }}
         </div>
         <div>
-          <label><strong>Temperature:</strong></label>
+          <label class="device-temperature-label"
+            ><strong>Temperature:</strong></label
+          >
           {{ currentDevice.temperature }} Celsius
         </div>
         <div>
-          <label><strong>Usage:</strong></label>
+          <label class="device-usage-label"><strong>Usage:</strong></label>
           <br />
           <img
+            class="usage-chart"
             src="assets/usage-chart-place-holder.png"
             alt="placeholder"
             width="125"
