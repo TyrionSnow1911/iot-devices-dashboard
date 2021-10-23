@@ -11,7 +11,6 @@ export class DevicesListComponent implements OnInit {
   devices: any[] = [];
   currentDevice: any = null;
   currentIndex = -1;
-  title: string = '';
 
   constructor(private dataService: DataService) {}
 

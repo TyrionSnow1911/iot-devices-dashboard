@@ -11,14 +11,12 @@
 
   <div class="main-device-list-container">
     <br />
-    <div class="device-list-header-container">
+    <div class="related-devices-field-container">
       <span class="related-devices">Related Devices:</span>
     </div>
-
     <div class="device-card-list-container">
-      <mat-list class="list-group">
+      <mat-list>
         <mat-list-item
-          class="list-group-item"
           *ngFor="let device of devices | filter: searchDevice; let i = index"
           [class.active]="i == currentIndex"
           (click)="setActiveDevice(device, i)"
@@ -63,8 +61,7 @@
         <div>
           <label class="device-status-label"><strong>Status:</strong></label>
           {{ currentDevice.status }}
-        </div>
-        <div>
+          <br />
           <label class="device-temperature-label"
             ><strong>Temperature:</strong></label
           >
