@@ -2,23 +2,24 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-devices-list',
-  templateUrl: './devices-list.component.html',
-  styleUrls: ['./devices-list.component.css'],
+  selector: 'device-list',
+  templateUrl: './device-list.component.html',
+  styleUrls: ['./device-list.component.css'],
 })
-export class DevicesListComponent implements OnInit {
+export class DeviceListComponent implements OnInit {
   public searchDevice: string = '';
-  devices: any[] = [];
+
   currentDevice: any = null;
   currentIndex = -1;
+  devices: any[] = [];
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.retrieveDevices();
   }
 
-  async retrieveDevices(): Promise<any> {
+  async retrieveDevices(): Promise<void> {
     await this.dataService.getAll().subscribe(
       (resp) => {
         this.devices = resp.data;
@@ -33,6 +34,7 @@ export class DevicesListComponent implements OnInit {
   setActiveDevice(device: any, index: any): void {
     this.currentDevice = device;
     this.currentIndex = index;
+    this.dataService.setCurrentDevice(this.currentDevice);
   }
 
   clearSearch() {

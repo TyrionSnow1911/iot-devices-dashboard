@@ -1,0 +1,28 @@
+<div class="device-details-container">
+  <div *ngIf="currentDevice">
+    <div class="device-details-title">
+      <label class="device-details-label"><strong>Details:</strong></label>
+      {{ currentDevice.name }}
+    </div>
+    <div>
+      <label class="device-status-label"><strong>Status:</strong></label>
+      {{ currentDevice.status }}
+      <br />
+      <label class="device-temperature-label"
+        ><strong>Temperature:</strong></label
+      >
+      {{ currentDevice.temperature }} Celsius
+    </div>
+    <div>
+      <label class="device-usage-label"><strong>Usage:</strong></label>
+      <br />
+      <img
+        class="usage-chart"
+        src="assets/usage-chart-place-holder.png"
+        alt="placeholder"
+        width="125"
+        height="200"
+      />
+    </div>
+  </div>
+</div>
