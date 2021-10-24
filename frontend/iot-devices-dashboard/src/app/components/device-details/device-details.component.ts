@@ -1,3 +1,4 @@
+import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./device-details.component.css'],
 })
 export class DeviceDetailsComponent implements OnInit {
-  constructor() {}
+  devices: any[] = [];
+  currentDevice: any = null;
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.currentDevice.subscribe(
+      (currentDevice: any) => (this.currentDevice = currentDevice)
+    );
+  }
 }

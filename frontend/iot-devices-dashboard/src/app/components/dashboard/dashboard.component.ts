@@ -7,33 +7,11 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  public searchDevice: string = '';
   devices: any[] = [];
-  currentDevice: any = null;
-  currentIndex = -1;
-
+  public searchDevice: string = '';
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-    this.retrieveDevices();
-  }
-
-  async retrieveDevices(): Promise<any> {
-    await this.dataService.getAll().subscribe(
-      (resp) => {
-        this.devices = resp.data;
-        console.log(this.devices);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  setActiveDevice(device: any, index: any): void {
-    this.currentDevice = device;
-    this.currentIndex = index;
-  }
+  ngOnInit(): void {}
 
   clearSearch() {
     this.searchDevice = '';

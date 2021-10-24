@@ -1,0 +1,29 @@
+.device-details-container {
+  display: inline-block;
+  border: solid gray;
+  position: fixed;
+  left: 250px;
+  top: 20px;
+  margin-left: 50px;
+}
+
+.device-details-container:empty {
+  border: none;
+}
+
+.device-details-title {
+  border: solid gray;
+  background-color: gray;
+}
+
+.device-details-label,
+.device-usage-label,
+.device-status-label,
+.device-temperature-label {
+  margin-left: 10px;
+}
+
+.usage-chart {
+  width: 100%;
+  height: 100%;
+}

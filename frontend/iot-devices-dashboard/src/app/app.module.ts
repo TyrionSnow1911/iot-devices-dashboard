@@ -9,12 +9,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
-import { DevicesListComponent } from './components/devices-list/devices-list.component';
+import { DeviceListComponent } from './components/device-list/device-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DevicesListComponent,
+    DeviceListComponent,
     FilterPipe,
     DashboardComponent,
     DeviceDetailsComponent,

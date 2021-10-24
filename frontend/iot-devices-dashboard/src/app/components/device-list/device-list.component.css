@@ -1,0 +1,64 @@
+.search-bar-group {
+  border: solid gray;
+  background-color: gray;
+  width: 245px;
+  height: 25px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.related-devices {
+  font-size: medium;
+  font-weight: bold;
+  background-color: gray;
+  height: 30%;
+}
+.related-devices-field-container {
+  background-color: gray;
+  border: solid gray;
+  border-width: 20px;
+  border-top-width: 5px;
+  border-bottom-width: 10px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.device-card-list-container {
+  display: inline-block;
+}
+
+.device-card-container {
+  background-color: gray;
+  border: solid gray;
+  border-width: 20px;
+  border-top-width: 5px;
+  border-bottom-width: 10px;
+  width: auto;
+  margin-left: 10px;
+}
+
+.device-card-header {
+  margin-left: 25px;
+}
+
+.device-icon {
+  display: inline-flex;
+  margin-left: 0px;
+  position: relative;
+  width: auto;
+  left: auto;
+  justify-content: left;
+}
+
+.device-card-status {
+  margin-left: 10px;
+}
+
+.info-icon {
+  display: inline-flex;
+  margin-left: 10px;
+  position: relative;
+  width: auto;
+  left: auto;
+  justify-content: right;
+}
