@@ -3,16 +3,16 @@ import json
 from flask_cors import CORS
 from flask import Flask
 from utilities.sqlUtilities import SqlUtilities
-from models import get_session, create_all, DeviceData
+from models import get_session, create_all, Device
 
 
 app = Flask(__name__)
 CORS(app)
-deviceData = DeviceData()
+deviceTable = Device()
 
 
 def seed_database():
-    global deviceData
+    global deviceTable
     cwd = os.getcwd()
     pathToDataFeed = os.path.join(cwd, "data/feed.json")
     with open(pathToDataFeed) as f:
@@ -20,20 +20,20 @@ def seed_database():
     count = 0
     for row in data:
         session = get_session()
-        deviceData.device_id = str(count)
-        deviceData.name = row["name"]
-        deviceData.status = row["status"]
-        deviceData.temperature = row["temperature"]
-        deviceData.type = row["type"]
-        session.merge(deviceData)
+        deviceTable.device_id = str(count)
+        deviceTable.name = row["name"]
+        deviceTable.status = row["status"]
+        deviceTable.temperature = row["temperature"]
+        deviceTable.type = row["type"]
+        session.merge(deviceTable)
         session.commit()
         count += 1
     session.close()
 
 
 @app.route("/devices", methods=["GET"])
-def fetchDeviceData():
-    global deviceData
+def fetchDevice():
+    global deviceTable
     session = get_session()
     rows = session.execute(SqlUtilities().fetchAllDevices()).fetchall()
 

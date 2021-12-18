@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from .base import Base
 
 
-class DeviceData(Base):
+class Device(Base):
     __tablename__ = "device_data"
     device_id = Column(Text, primary_key=True)
     name = Column(Text)
