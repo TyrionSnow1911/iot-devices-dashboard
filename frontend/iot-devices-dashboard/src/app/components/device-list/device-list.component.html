@@ -1,4 +1,4 @@
-<div class="device-card-list-container">
+<div class="device-list-container">
   <div class="search-bar-group">
     <input
       type="text"
@@ -9,11 +9,10 @@
     <button (click)="clearSearch()">Cancel</button>
   </div>
   <br />
-
-  <div class="related-devices-field-container">
+  <div class="related-devices-container">
     <span class="related-devices">Related Devices:</span>
   </div>
-  <mat-list>
+  <mat-list class="device-list">
     <mat-list-item
       *ngFor="let device of devices | filter: searchDevice; let i = index"
       [class.active]="i == currentIndex"
@@ -21,7 +20,7 @@
     >
       <br />
       <div class="device-card-container">
-        <mat-card>
+        <mat-card class="device-card">
           <mat-card-header class="device-card-header">
             <mat-card-title> {{ device.name }} </mat-card-title>
           </mat-card-header>
