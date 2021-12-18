@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-const baseUrl = 'http://localhost:8080/devices';
+const baseUrl = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
-    return this.http.get(baseUrl);
+    return this.http.get(`${baseUrl}/devices`);
   }
 
   setCurrentDevice(device: any) {
