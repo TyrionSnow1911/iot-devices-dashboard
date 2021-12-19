@@ -2,7 +2,7 @@ import os
 import json
 from flask_cors import CORS
 from flask import Flask
-from utilities.sqlUtilities import SqlUtilities
+from sqlUtilities import SqlUtilities
 from models import get_session, create_all, Device
 
 
@@ -32,7 +32,7 @@ def seed_database():
 
 
 @app.route("/devices", methods=["GET"])
-def fetchDevice():
+def fetchDevices():
     global deviceTable
     session = get_session()
     rows = session.execute(SqlUtilities().fetchAllDevices()).fetchall()
