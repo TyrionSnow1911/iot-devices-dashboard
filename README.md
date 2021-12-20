@@ -33,5 +33,5 @@ ng serve
 
 # Testing
 
-ng e2e
-ng test
+Device list validation: ng e2e,
+Unit testing: ng test

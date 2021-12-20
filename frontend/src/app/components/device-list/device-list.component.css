@@ -13,11 +13,8 @@
   background-color: gray;
   height: 30%;
 }
-<<<<<<< HEAD:frontend/src/app/components/device-list/device-list.component.css
-.related-devices-field-container {
-=======
+
 .related-devices-container {
->>>>>>> development/refactoring:frontend/iot-devices-dashboard/src/app/components/devices-list/devices-list.component.css
   background-color: gray;
   border: solid gray;
   border-width: 20px;
@@ -52,13 +49,6 @@
   width: auto;
   left: auto;
   justify-content: left;
-<<<<<<< HEAD:frontend/src/app/components/device-list/device-list.component.css
-}
-
-.device-card-status {
-  margin-left: 10px;
-=======
->>>>>>> development/refactoring:frontend/iot-devices-dashboard/src/app/components/devices-list/devices-list.component.css
 }
 
 .info-icon {
@@ -69,10 +59,7 @@
   left: auto;
   justify-content: right;
 }
-<<<<<<< HEAD:frontend/src/app/components/device-list/device-list.component.css
-=======
 
 .device-card-status {
   margin-left: 10px;
 }
->>>>>>> development/refactoring:frontend/iot-devices-dashboard/src/app/components/devices-list/devices-list.component.css
