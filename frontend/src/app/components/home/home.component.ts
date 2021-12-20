@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
-  selector: 'dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
-export class DashboardComponent implements OnInit {
+export class HomeComponent implements OnInit {
   devices: any[] = [];
   public searchDevice: string = '';
   constructor() {}

@@ -20,7 +20,7 @@ describe('DeviceDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create device details component.', () => {
     expect(component).toBeTruthy();
   });
 });
