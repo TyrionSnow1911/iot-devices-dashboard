@@ -1,8 +1,8 @@
 import requests
 import unittest
-from backend.app import seed_database
+from app import seed_database
 from models import get_session
-from backend.sqlUtilities import SqlUtilities
+from sqlUtilities import SqlUtilities
 
 
 class TestRoutes(unittest.TestCase):

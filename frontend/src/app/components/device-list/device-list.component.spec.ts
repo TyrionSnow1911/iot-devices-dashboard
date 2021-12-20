@@ -1,6 +1,7 @@
+import { FilterPipe } from './../../pipe/filter.pipe';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { DeviceListComponent } from './devices-list.component';
+import { DeviceListComponent } from './device-list.component';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('DeviceListComponent', () => {
   let component: DeviceListComponent;
@@ -8,7 +9,9 @@ describe('DeviceListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DeviceListComponent],
+      imports: [],
+      providers: [HttpHandler, HttpClient, FilterPipe],
+      declarations: [DeviceListComponent, FilterPipe],
     }).compileComponents();
   });
 
