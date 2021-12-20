@@ -1,5 +1,5 @@
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DeviceDetailsComponent } from './device-details.component';
 
 describe('DeviceDetailsComponent', () => {
@@ -8,9 +8,9 @@ describe('DeviceDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeviceDetailsComponent ]
-    })
-    .compileComponents();
+      providers: [HttpClient, HttpHandler],
+      declarations: [DeviceDetailsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
