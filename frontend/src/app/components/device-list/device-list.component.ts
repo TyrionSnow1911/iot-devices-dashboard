@@ -13,7 +13,9 @@ export class DeviceListComponent implements OnInit {
   currentIndex = -1;
   devices: any[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.retrieveDevices();
+  }
 
   ngOnInit() {
     this.retrieveDevices();

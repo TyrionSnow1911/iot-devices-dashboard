@@ -1,17 +1,18 @@
 import os
 import json
 from flask_cors import CORS
-from flask import Flask, request, jsonify
-from models import get_session, create_all, DeviceData
+from flask import Flask
+from sqlUtilities import SqlUtilities
+from models import get_session, create_all, Device
 
 
 app = Flask(__name__)
 CORS(app)
-deviceData = DeviceData()
+deviceTable = Device()
 
 
 def seed_database():
-    global deviceData
+    global deviceTable
     cwd = os.getcwd()
     pathToDataFeed = os.path.join(cwd, "data/feed.json")
     with open(pathToDataFeed) as f:
@@ -19,22 +20,22 @@ def seed_database():
     count = 0
     for row in data:
         session = get_session()
-        deviceData.device_id = str(count)
-        deviceData.name = row["name"]
-        deviceData.status = row["status"]
-        deviceData.temperature = row["temperature"]
-        deviceData.type = row["type"]
-        session.merge(deviceData)
+        deviceTable.device_id = str(count)
+        deviceTable.name = row["name"]
+        deviceTable.status = row["status"]
+        deviceTable.temperature = row["temperature"]
+        deviceTable.type = row["type"]
+        session.merge(deviceTable)
         session.commit()
         count += 1
     session.close()
 
 
 @app.route("/devices", methods=["GET"])
-def fetchDeviceData():
-    global deviceData
+def fetchDevices():
+    global deviceTable
     session = get_session()
-    rows = session.execute("select * from device_data;").fetchall()
+    rows = session.execute(SqlUtilities().fetchAllDevices()).fetchall()
 
     result = []
     for row in rows:
@@ -47,26 +48,6 @@ def fetchDeviceData():
         result.append(data)
 
     return json.dumps({"success": True, "data": result}), 200
-
-
-@app.route("/devices/:id", methods=["GET"])
-def fetchDeviceDetails():
-    global deviceData
-    id = request.args.get("device_id")
-
-    session = get_session()
-    result = session.execute(
-        "select * from device_data where device_id={};".format(str(id))
-    ).fetchall()[0]
-
-    data = {}
-    data["device_id"] = result[0]
-    data["name"] = result[1]
-    data["status"] = result[2]
-    data["temperature"] = result[3]
-    data["type"] = result[4]
-
-    return json.dumps({"success": True, "data": data}), 200
 
 
 if __name__ == "__main__":
