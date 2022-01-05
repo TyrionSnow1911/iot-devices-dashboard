@@ -3,14 +3,14 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(value: any, args?: any): any {
-    if (!value) return null;
-    if (!args) return value;
+  transform(list?: any, input?: any): any {
+    if (!list) return null;
+    if (!input) return list;
 
-    args = args.toLowerCase();
+    input = input.toLowerCase();
 
-    return value.filter(function (data: any) {
-      return JSON.stringify(data).toLowerCase().includes(args);
+    return list.filter(function (data: any) {
+      return JSON.stringify(data).toLowerCase().includes(input);
     });
   }
 }
